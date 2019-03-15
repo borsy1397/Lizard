@@ -1,0 +1,7 @@
+.btnBlock > div {
+    margin-bottom: 40px;
+}
+
+.btnBlock button {
+    width: 200px;
+}

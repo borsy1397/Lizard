@@ -1,0 +1,41 @@
+body {
+    background: rgb(255, 247, 213);
+}
+
+.nav-link-text {
+    font-size: 30px;
+    font-weight: bold;
+    margin-right: 40px;
+}
+
+main {
+    margin-top: 200px;
+}
+
+.row>div>div {
+    padding: 10px;
+    border: 1px solid black;
+    margin: 5px;
+    overflow: hidden;
+}
+
+.row a {
+    color: inherit;
+    text-decoration: inherit;
+}
+
+.question {
+    margin-bottom: 50px;
+    border: 1px solid black;
+}
+
+.response {
+    border: 1px solid black;
+    margin: 5px;
+    text-align: left !important;
+    padding: 20px;
+}
+
+.btn {
+    margin-top: 30px;
+}

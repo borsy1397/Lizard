@@ -1,0 +1,36 @@
+body {
+    background: rgb(255, 247, 213);
+}
+
+.nav-link-text {
+    font-size: 30px;
+    font-weight: bold;
+}
+
+main {
+    margin-top: 200px;
+}
+
+.row > div > div {
+    padding: 10px;
+    border: 1px solid black;
+    margin: 5px;
+}
+
+.row > div > div > div {
+    padding: 5px;
+    border-bottom: 1px solid black;
+}
+
+
+.row a {
+    color: inherit;
+    /* blue colors for links too */
+    text-decoration: inherit;
+    /* no underline */
+}
+
+.navbar-collapse {
+    border-bottom: 1px solid grey;
+    
+}
