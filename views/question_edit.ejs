@@ -1,0 +1,64 @@
+<%- include('header', {css: "newquestion.css"}) %>
+<div class="hatter">
+
+    <div class="container">
+
+        <header>
+            <nav class="navbar navbar-expand-md fixed-top navbar-dark custom2" id="navbaar">
+                <div class="container">
+                    <button class="navbar-toggler custom-toggler" type="button" data-clicked="false"
+                        data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup"
+                        aria-expanded="false" aria-label="Toggle navigation" id="toggler">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+
+                    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                        <div class="navbar-nav">
+                            <a class="nav-link nav-link-text" style="color: orange;" href="/user/id">Profile</a>
+                            <a class="nav-link nav-link-text" style="color: orange;" href="/question">Jump to
+                                questions</a>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </header>
+
+        <main>
+            <div class="container text-center">
+
+
+                <form method="POST" id="qform"> 
+                    
+                </form>
+                <% if (typeof question == "undefined") { %>
+                <h2>New Question</h2>
+                <select name="category" id="category" form="qform">
+                    <option value="Sport">Sport</option>
+                    <option value="Film">Film</option>
+                    <option value="Tudomany">Tudomany</option>
+                </select>
+                <% } else { %>
+                <h2>Edit Question</h2>
+                <% } %>
+                <div class="question">
+                    <textarea rows="2" name="title" id="title" cols="100" form="qform"><% if (typeof question != "undefined") { %><%= question.title %><% } %></textarea>
+                </div>
+
+
+                <div>
+                    <button class="btn btn-secondary" form="qform" type="submit">
+                        <% if (typeof question == "undefined") { %>
+                        Ask
+                        <% } else { %>
+                        Edit
+                        <% } %>
+                    </button>
+                </div>
+        </main>
+    </div>
+</div>
+
+
+
+
+<%- include('footer') %>

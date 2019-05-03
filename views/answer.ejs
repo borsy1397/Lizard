@@ -1,0 +1,52 @@
+<%- include('header', {css: "onequestion.css"}) %>
+<div class="hatter">
+
+    <div class="container">
+
+        <header>
+            <nav class="navbar navbar-expand-md fixed-top navbar-dark custom2" id="navbaar">
+                <div class="container">
+                    <button class="navbar-toggler custom-toggler" type="button" data-clicked="false"
+                        data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup"
+                        aria-expanded="false" aria-label="Toggle navigation" id="toggler">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+
+                    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                        <div class="navbar-nav">
+                            <a class="nav-link nav-link-text" style="color: orange;"
+                                href="/user/<%= profile %>">Profile</a>
+                            <a class="nav-link nav-link-text" style="color: orange;" href="/question">Jump to
+                                questions</a>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </header>
+
+        <main>
+            <div class="container text-center">
+                
+                <form method="POST" id="qform">
+
+                </form>
+                <div class="question">
+                        <h1><%= question.title %></h1>
+                    </div>
+                <div class="question">
+                    <textarea rows="2" name="response" id="response" cols="100"
+                        form="qform"></textarea>
+                </div>
+
+
+                <div>
+                    <button class="btn btn-secondary" form="qform" type="submit">Send</button>
+                </div>
+
+
+        </main>
+    </div>
+
+</div>
+
+<%- include('footer') %>

@@ -12,26 +12,11 @@ module.exports = app => {
 
     let objectRepository = {};
 
-
-    // Return all questions
-    app.use('/question',
-        //authMW(objectRepository), do not required
-        getAllQuestionMW(objectRepository),
-        renderMW(objectRepository, 'questions')
-    );
-
-    // Ask new question
-    app.use('/question/new',
-        authMW(objectRepository),
-        updateQuestionMW(objectRepository),
-        renderMW(objectRepository, 'question_edit')
-    );
-
     // Return one question with its responses
     app.use('/question/:questionid/details',
         authMW(objectRepository),
         getQuestionMW(objectRepository),
-        renderMW(objectRepository, 'question_detail')
+        renderMW(objectRepository, 'question_details')
     );
 
     // Update the question
@@ -39,7 +24,7 @@ module.exports = app => {
         authMW(objectRepository),
         getQuestionMW(objectRepository),
         updateQuestionMW(objectRepository),
-        renderMW(objectRepository, 'question_edit')
+        renderMW(objectRepository, 'question_edit') 
     );
 
     // Delete the question
@@ -47,7 +32,7 @@ module.exports = app => {
         authMW(objectRepository),
         getQuestionMW(objectRepository),
         deletQuestionMW(objectRepository),
-        function (req, res, next) {
+        (req, res, next) => {
             return res.redirect('/question');
         }
     );
@@ -56,10 +41,8 @@ module.exports = app => {
     app.use('/question/:questionid/answer',
         authMW(objectRepository),
         getQuestionMW(objectRepository),
-        answerQuestionMW(objectRepository), 
-        function (req, res, next) {
-            return res.redirect('/question/:questionid/details');
-        }
+        answerQuestionMW(objectRepository),
+        renderMW(objectRepository, 'answer')
     );
 
     // Return the category's questions
@@ -68,6 +51,21 @@ module.exports = app => {
         renderMW(objectRepository, 'questions')
     );
 
+
+
+    // Ask new question
+    app.use('/question/new',
+        authMW(objectRepository),
+        updateQuestionMW(objectRepository),
+        renderMW(objectRepository, 'question_edit')
+    );
+
+    // Return all questions
+    app.use('/question',
+        authMW(objectRepository),
+        getAllQuestionMW(objectRepository),
+        renderMW(objectRepository, 'questions')
+    );
 }
 
 

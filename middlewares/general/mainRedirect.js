@@ -3,11 +3,18 @@
  * should be redirected to: /question when signed in
  */
 
-module.exports = function (objectrepository) {
+module.exports = objectrepository => {
 
-    return function (req, res, next) {
+    return (req, res, next) => {
+        if (typeof req.session.userid === 'undefined') {
 
-        return next();
+            return res.redirect('/login');
+        } else {
+
+            return res.redirect('/question');
+        }
+    
     };
+
 
 };

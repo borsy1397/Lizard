@@ -1,0 +1,52 @@
+<%- include('header', {css: "questions.css"}) %>
+<div class="hatter">
+
+    <div class="container">
+
+        <header>
+            <nav class="navbar navbar-expand-md fixed-top navbar-dark custom2" id="navbaar">
+                <div class="container">
+                    <button class="navbar-toggler custom-toggler" type="button" data-clicked="false"
+                        data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup"
+                        aria-expanded="false" aria-label="Toggle navigation" id="toggler">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+
+                    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                        <div class="navbar-nav">
+                            <a class="nav-link nav-link-text" style="color: orange;" href="/question">Jump to
+                                questions</a>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </header>
+
+        <main>
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-2 col-md-2 col-lg-2">
+                        <div>
+                            <div><a href="/user/<%= user._id %>/question">My questions</a></div>
+                            <div><a href="/user/<%= user._id %>/response">My responses</a></div>
+                            <div><a href="/question/new">New question</a></div>
+                        </div>
+                    </div>
+                    <div class="col-lg-2 col-md-2">
+
+                    </div>
+
+                    <div class="col-sm-10 col-lg-8 col-md-8">
+                        <% question.forEach(function(item){ %>
+                        <div><a href="/question/<%= item._id %>/details"><%= item.title %></a>
+                        </div>
+                        <% }); %>
+
+                    </div>
+
+                </div>
+        </main>
+    </div>
+</div>
+
+<%- include('footer') %>

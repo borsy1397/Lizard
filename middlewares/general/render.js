@@ -2,11 +2,10 @@
  * Using the template engine render the values into the template
  */
 
-module.exports = function (objectrepository) {
+module.exports = (objectrepository, viewName) => {
 
-    return function (req, res, next) {
-
-        return next();
+    return (req, res, next) => {
+        res.render(viewName, res.locals);
     };
 
 };

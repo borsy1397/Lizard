@@ -1,5 +1,11 @@
-body {
+html, body {
     background: rgb(255, 247, 213);
+    height: 100%;
+}
+
+.hatter {
+    background: rgb(255, 247, 213);
+    height: 100%;
 }
 
 .nav-link-text {

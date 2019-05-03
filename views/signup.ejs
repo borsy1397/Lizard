@@ -1,0 +1,19 @@
+<%- include('header', {css: "login.css"}) %>
+<div class="hatter">
+    <div class="loginmodal-container">
+        <h1>Sign up</h1><br>
+        <form method="POST">
+            <input type="text" name="username" id="username" required placeholder="Username" autocomplete="off"
+                minlength="4">
+            <input type="password" name="password" id="password" required placeholder="Password" autocomplete="off"
+                minlength="4">
+            <input type="submit" name="login" class="login loginmodal-submit" value="Sign up">
+        </form>
+        <div class="login-help">
+            <a href="/login">Login</a>
+            <a href="/questions">Questions</a>
+        </div>
+    </div>
+
+</div>
+<%- include('footer') %>

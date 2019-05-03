@@ -1,13 +1,35 @@
+const User = require('../../model/User');
 /**
  * Load a user (if exists) with the :userid param
- * and put it on res.tpl.user
+ * and put it on res.locals.user
  */
 
-module.exports = function (objectrepository) {
+module.exports = objectrepository => {
 
-    return function (req, res, next) {
+    return (req, res, next) => {
 
-        return next();
+        User.findOne({ _id: req.params.userid })
+        .populate({
+            path: '_ownQ',
+            model: 'Question',
+            populate: {
+              path: '_resQ',
+              model: 'Question'
+            }
+          })
+            .exec()
+            .then(user => {
+                if (!user) {
+                    return res.redirect('/question');
+                } else {
+                    res.locals.user = user;
+                    return next();
+                }
+            })
+            .catch(err => {
+                console.log(err);
+                res.redirect('/question');
+            });
     };
 
 };

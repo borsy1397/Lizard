@@ -1,0 +1,48 @@
+<%- include('header', {css: "questions.css"}) %>
+<div class="hatter">
+
+    <div class="container">
+
+        <header>
+            <nav class="navbar navbar-expand-md fixed-top navbar-dark custom2" id="navbaar">
+                <div class="container">
+                    <button class="navbar-toggler custom-toggler" type="button" data-clicked="false"
+                        data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup"
+                        aria-expanded="false" aria-label="Toggle navigation" id="toggler">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+
+                    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                        <div class="navbar-nav">
+                            <a class="nav-link nav-link-text" style="color: orange;" href="/user/<%= profile %>">Profile</a>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </header>
+
+        <main>
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-4 col-lg-2">
+                        <div>
+                            <div><a href="/question/Sport/category">Sport</a></div>
+                            <div><a href="/question/Tudomany/category">Tudomany</a></div>
+                            <div><a href="/question/Film/category">Film</a></div>
+                        </div>
+                    </div>
+                    <div class="col-lg-2">
+
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-lg-8 col-md-8">
+                        <% questions.forEach(function(item){ %>
+                        <div><a href="/question/<%= item.id %>/details"><%= item.title %></a></div>
+                        <% }); %>
+
+                    </div>
+                </div>
+        </main>
+    </div>
+</div>
+
+<%- include('footer') %>
