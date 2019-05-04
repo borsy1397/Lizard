@@ -4,13 +4,11 @@ const Question = require('../../model/Question');
  * and put it on res.tpl.user.responses
  */
 
-module.exports = function (objectrepository) {
+module.exports = objectrepository => {
 
-    return function (req, res, next) {
-
+    return (req, res, next) => {
         res.locals.question = res.locals.user._resQ;
         return next();
-
     };
 
 };

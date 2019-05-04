@@ -9,10 +9,9 @@ module.exports = objectrepository => {
         if (typeof req.session.userid === 'undefined') {
             return res.redirect('/login');
         } else {
-
             return res.redirect('/question');
         }
-    
+
     };
 
 

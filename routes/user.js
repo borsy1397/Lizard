@@ -25,7 +25,7 @@ module.exports = app => {
         authMW(objectRepository),
         getUserMW(objectRepository),
         getQuestionOfUserMW(objectRepository),
-        renderMW(objectRepository, 'user_questions') 
+        renderMW(objectRepository, 'user_questions')
     );
 
     // Return that questions which is answered by the user
@@ -33,7 +33,7 @@ module.exports = app => {
         authMW(objectRepository),
         getUserMW(objectRepository),
         getResponsOfUserMW(objectRepository),
-        renderMW(objectRepository, 'user_questions') 
+        renderMW(objectRepository, 'user_questions')
     );
     // Return one user (profile)
     app.use('/user/:userid',

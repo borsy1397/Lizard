@@ -25,10 +25,8 @@
 
         <main>
             <div class="container text-center">
+                <form method="POST" id="qform">
 
-
-                <form method="POST" id="qform"> 
-                    
                 </form>
                 <% if (typeof question == "undefined") { %>
                 <h2>New Question</h2>
@@ -41,10 +39,9 @@
                 <h2>Edit Question</h2>
                 <% } %>
                 <div class="question">
-                    <textarea rows="2" name="title" id="title" cols="100" form="qform"><% if (typeof question != "undefined") { %><%= question.title %><% } %></textarea>
+                    <textarea rows="2" maxlength="500" name="title" id="title" cols="100"
+                        form="qform"><% if (typeof question != "undefined") { %><%= question.title %><% } %></textarea>
                 </div>
-
-
                 <div>
                     <button class="btn btn-secondary" form="qform" type="submit">
                         <% if (typeof question == "undefined") { %>

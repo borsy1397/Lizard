@@ -1,5 +1,6 @@
 const User = require('../../model/User');
 const bcrypt = require('bcrypt');
+
 /**
  * This middleware loads the user from model and checks the credentials,
  * if they are ok, set session values and redirect to /
@@ -29,9 +30,7 @@ module.exports = objectrepository => {
                         }
 
                         if (result) {
-                            
                             req.session.userid = user._id
-      
                             return res.redirect('/');
                         } else {
                             res.locals.error.push('Invalid username or password!');

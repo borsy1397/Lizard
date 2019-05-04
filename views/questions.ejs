@@ -14,9 +14,10 @@
 
                     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                         <div class="navbar-nav">
-                            <a class="nav-link nav-link-text" style="color: orange;" href="/user/<%= profile %>">Profile</a>
+                            <a class="nav-link nav-link-text" style="color: orange;"
+                                href="/user/<%= profile %>">Profile</a>
                         </div>
-                        <a href="/logout" class="btn">Logout</a>
+                        <button class="btn btn-warning"><a href="/logout">Logout</a></button>
                     </div>
                 </div>
             </nav>
@@ -27,10 +28,11 @@
             <div class="container">
                 <div class="row">
                     <div class="col-xs-12 col-sm-12 col-md-4 col-lg-2">
-                        <div>
+                        <div class="categories">
                             <div><a href="/question/Sport/category">Sport</a></div>
                             <div><a href="/question/Tudomany/category">Tudomany</a></div>
                             <div><a href="/question/Film/category">Film</a></div>
+                            <div><a href="/question">Osszes</a></div>
                         </div>
                     </div>
                     <div class="col-lg-2">
@@ -38,7 +40,8 @@
                     </div>
                     <div class="col-xs-12 col-sm-12 col-lg-8 col-md-8">
                         <% questions.forEach(function(item){ %>
-                        <div><a href="/question/<%= item.id %>/details"><%= item.title %></a></div>
+                        <div class="question-list"><a href="/question/<%= item.id %>/details"><%= item.title %></a>
+                        </div>
                         <% }); %>
 
                     </div>

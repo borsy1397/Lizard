@@ -9,33 +9,26 @@ const User = require('../../model/User');
 
 module.exports = objectrepository => {
 
-    /**
-     * A kerdes kiirojanal elmenteni ezt a kerdest
-     */
-
     return (req, res, next) => {
-
-        console.log("na kiirsz valamit?");
 
         if (typeof req.body.title === 'undefined') {
             return next();
         }
 
         let question = undefined;
+        let find = false;
         if (typeof res.locals.question !== 'undefined') {
             question = res.locals.question;
+            find = true;
         } else {
             question = new Question();
         }
 
         question.title = req.body.title;
-        question.category = req.body.category;
+        if (typeof req.body.category !== 'undefined') {
+            question.category = req.body.category;
+        }
         question.date = Date.now();
-
-        console.log(question);
-
-        let resultid = null;
-
 
         User.findOne({ _id: req.session.userid })
             .populate('_ownQ')
@@ -44,19 +37,18 @@ module.exports = objectrepository => {
                 if (!user) {
                     return res.redirect('/question');
                 } else {
-
                     question
                         .save()
                         .then(result => {
-                            user._ownQ.push(question);
-                            user.save().then(result => { }).catch(err => { });
-                            return res.redirect(`/question/${result._id}/details`); // result._id ?
+                            if (!find) {
+                                user._ownQ.push(question);
+                                user.save().then(result => { }).catch(err => { });
+                            }
+                            return res.redirect(`/question/${result._id}/details`); 
                         })
                         .catch(err => {
                             console.log(err);
                         });
-
-
                 }
             })
             .catch(err => {

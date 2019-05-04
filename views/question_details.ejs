@@ -14,7 +14,8 @@
 
                     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                         <div class="navbar-nav">
-                            <a class="nav-link nav-link-text" style="color: orange;" href="/user/<%= profile %>">Profile</a>
+                            <a class="nav-link nav-link-text" style="color: orange;"
+                                href="/user/<%= profile %>">Profile</a>
                             <a class="nav-link nav-link-text" style="color: orange;" href="/question">Jump to
                                 questions</a>
                         </div>
@@ -33,11 +34,16 @@
                     <% question._responses.forEach(function(item){ %>
                     <div class="response">
                         <p><strong>Response:</strong> <%= item.text %></p>
-                        <p><strong>User:</strong> <%= item._owner.username %></p>
+                        <p><strong>User:</strong>
+                            <% if (item._owner) { %>
+                            <%= item._owner.username %>
+                            <% } else { %>
+                            deleted user
+                            <% } %>
+                        </p>
                         <p><strong>Date:</strong> <%= moment(item.date).format('MMM-DD-YYYY')%></p>
                     </div>
                     <% }); %>
-
                 </div>
                 <div>
                     <button class="btn btn-secondary"><a href="/question/<%= question._id %>/answer">Reply</a></button>

@@ -17,7 +17,8 @@
                             <a class="nav-link nav-link-text" style="color: orange;" href="/question">Jump to
                                 questions</a>
                         </div>
-                        <a href="/logout" class="btn">Logout</a>
+                        <button class="btn btn-warning"><a href="/logout">Logout</a></button>
+
                     </div>
                 </div>
             </nav>
@@ -29,7 +30,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-sm-2 col-md-2 col-lg-2">
-                        <div>
+                        <div class="categories">
                             <div><a href="/user/<%= user._id %>/question">My questions</a></div>
                             <div><a href="/user/<%= user._id %>/response">My responses</a></div>
                             <div><a href="/question/new">New question</a></div>
@@ -38,7 +39,6 @@
                     <div class="col-lg-2 col-md-2">
 
                     </div>
-
                 </div>
         </main>
     </div>

@@ -24,7 +24,7 @@ module.exports = app => {
         authMW(objectRepository),
         getQuestionMW(objectRepository),
         updateQuestionMW(objectRepository),
-        renderMW(objectRepository, 'question_edit') 
+        renderMW(objectRepository, 'question_edit')
     );
 
     // Delete the question

@@ -8,16 +8,13 @@ module.exports = function (objectrepository) {
 
     return function (req, res, next) {
 
-
         if ((typeof req.body === 'undefined') || (typeof req.body.response === 'undefined')) {
             return next();
         }
 
         response = new Response();
-
         response.text = req.body.response;
         response.date = Date.now();
-
 
         User.findOne({ _id: req.session.userid })
             .populate('_resQ')
@@ -65,14 +62,12 @@ module.exports = function (objectrepository) {
                         .catch(err => {
                             console.log(err);
                         });
-
                 }
             })
             .catch(err => {
                 console.log(err);
                 res.redirect('/question');
             });
-
     };
 
 };

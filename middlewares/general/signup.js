@@ -44,9 +44,6 @@ module.exports = function (objectrepository) {
                     username: userData.username,
                     password: hash
                 });
-
-                console.log("miafaszvanaasdfsa");
-
                 newUser
                     .save()
                     .then(result => {
@@ -60,8 +57,6 @@ module.exports = function (objectrepository) {
                             message: "This username already exists. Choose another one!"
                         });
                     });
-
-                
             }
         });
     }

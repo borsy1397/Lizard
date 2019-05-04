@@ -17,19 +17,19 @@
                             <a class="nav-link nav-link-text" style="color: orange;" href="/question">Jump to
                                 questions</a>
                         </div>
-                        <a href="/logout" class="btn">Logout</a>
+                        <button class="btn btn-warning"><a href="/logout">Logout</a></button>
                     </div>
                 </div>
             </nav>
         </header>
 
         <main>
-            <h2>Ez a profilodon belul az altalad feltett, vagy megvaloszolt kerdeseid</h2>
+            <h2>Ez a profilodon belul az altalad feltett, vagy megvalaszolt kerdeseid</h2>
             <button><a href="/user/<%= user._id %>/delete">DELETE PROFILE</a></button>
             <div class="container">
                 <div class="row">
                     <div class="col-sm-2 col-md-2 col-lg-2">
-                        <div>
+                        <div class="categories">
                             <div><a href="/user/<%= user._id %>/question">My questions</a></div>
                             <div><a href="/user/<%= user._id %>/response">My responses</a></div>
                             <div><a href="/question/new">New question</a></div>
@@ -41,20 +41,23 @@
 
                     <div class="col-sm-10 col-lg-8 col-md-8">
                         <% question.forEach(function(item){ %>
-                        <div><a href="/question/<%= item._id %>/details"><%= item.title %></a>
+                        <div class="question-list">
+
+                            <a href="/question/<%= item._id %>/details"><%= item.title %></a>
 
                             <% if (typeof myQ != "undefined") { %>
 
-                            <button class="btn btn-success"><a href="/question/<%= item._id %>/edit"></a></button>
-                            <button class="btn btn-danger"><a href="/question/<%= item._id %>/delete"></a></button>
+                            <button class="btn btn-success"><a href="/question/<%= item._id %>/edit">Edit</a></button>
+                            <button class="btn btn-danger"><a
+                                    href="/question/<%= item._id %>/delete">Delete</a></button>
 
                             <% } %>
                         </div>
                         <% }); %>
 
-                        </div>
-
                     </div>
+
+                </div>
         </main>
     </div>
 </div>

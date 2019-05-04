@@ -10,7 +10,7 @@ app.use(express.static('static'));
 app.use(session({
   secret: 'hdsafhasldfhsldf',
   cookie: {
-    maxAge: 120000
+    maxAge: 200000
   },
   resave: true,
   saveUninitialized: false
