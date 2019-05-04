@@ -17,12 +17,15 @@
                             <a class="nav-link nav-link-text" style="color: orange;" href="/question">Jump to
                                 questions</a>
                         </div>
+                        <a href="/logout" class="btn">Logout</a>
                     </div>
                 </div>
             </nav>
         </header>
 
         <main>
+            <h2>Ez a profilod</h2>
+            <button><a href="/user/<%= user._id %>/delete">DELETE PROFILE</a></button>
             <div class="container">
                 <div class="row">
                     <div class="col-sm-2 col-md-2 col-lg-2">

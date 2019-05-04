@@ -1,7 +1,6 @@
 const authMW = require('../middlewares/general/auth');
 const renderMW = require('../middlewares/general/render');
 const getUserMW = require('../middlewares/user/getUser');
-const updateUserMW = require('../middlewares/user/updateUser');
 const deleteUserMW = require('../middlewares/user/deleteUser');
 const getQuestionOfUserMW = require('../middlewares/user/getQuestionOfUser');
 const getResponsOfUserMW = require('../middlewares/user/getResponseOfUser');
@@ -10,15 +9,6 @@ const getResponsOfUserMW = require('../middlewares/user/getResponseOfUser');
 module.exports = app => {
 
     let objectRepository = {};
-
-
-    // Update user
-    app.use('/user/:userid/edit',
-        authMW(objectRepository),
-        getUserMW(objectRepository),
-        updateUserMW(objectRepository),
-        renderMW(objectRepository, 'user_edit')
-    );
 
     // Delete user
     app.use('/user/:userid/delete',

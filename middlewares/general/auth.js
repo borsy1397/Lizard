@@ -6,7 +6,6 @@ module.exports = (objectrepository) => {
 
     return (req, res, next) => {
         if (typeof req.session.userid === 'undefined') {
-            console.log("miafaszertnemengedszelbasdzmeg");
             return res.redirect('/');
         }
         

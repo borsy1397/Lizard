@@ -9,6 +9,7 @@ module.exports = function (objectrepository) {
     return function (req, res, next) {
 
         res.locals.question = res.locals.user._ownQ;
+        res.locals.myQ = true;
         return next();
     };
 

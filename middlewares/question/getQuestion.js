@@ -20,7 +20,14 @@ module.exports = objectrepository => {
          */
         Question
             .findOne({ _id: req.params.questionid })
-            .populate('_responses')
+            .populate({
+                path: '_responses',
+                model: 'Response',
+                populate: {
+                  path: '_owner',
+                  model: 'User'
+                }
+              })
             .exec()
             .then(question => {
                 if (!question) {

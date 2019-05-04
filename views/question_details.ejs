@@ -28,10 +28,13 @@
                 <div class="question">
                     <h1><%= question.title %></h1>
                 </div>
+                <h3>Responses:</h3>
                 <div class="response">
                     <% question._responses.forEach(function(item){ %>
                     <div class="response">
-                        <%= item %>
+                        <p><strong>Response:</strong> <%= item.text %></p>
+                        <p><strong>User:</strong> <%= item._owner.username %></p>
+                        <p><strong>Date:</strong> <%= moment(item.date).format('MMM-DD-YYYY')%></p>
                     </div>
                     <% }); %>
 

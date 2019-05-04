@@ -9,14 +9,8 @@ module.exports = objectrepository => {
     return (req, res, next) => {
 
         User.findOne({ _id: req.params.userid })
-        .populate({
-            path: '_ownQ',
-            model: 'Question',
-            populate: {
-              path: '_resQ',
-              model: 'Question'
-            }
-          })
+        .populate('_ownQ')
+        .populate('_resQ')
             .exec()
             .then(user => {
                 if (!user) {

@@ -22,7 +22,7 @@ module.exports = objectrepository => {
                     res.locals.error.push('Invalid username or password!');
                     return next();
                 } else {
-                    bcrypt.compare(req.body.password, user.password, (err, result) => { //bcrypt dependency!
+                    bcrypt.compare(req.body.password, user.password, (err, result) => {
                         if (err) {
                             res.locals.error.push('Invalid username or password!');
                             return next();
